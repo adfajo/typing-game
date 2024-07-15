@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../style.css">
     <script src="../js/wordLogic.js"></script>
 </head>
-<body>
-<button onclick="getRandomWord()">Click me</button>
-<p>hi</p>
+<body onload="initializeGame()">
+    <div id="game-items">
+        <div id="word-shower">
+
+        </div>
+        <div id="word-input">
+            <input type="text" id="word-input-field">
+        </div>
+    </div>
 </body>
 </html>

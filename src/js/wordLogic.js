@@ -1,8 +1,22 @@
+function initializeGame() {
+    document.getElementById('word-input-field').focus();
+    var time = 5000;
+    setInterval(sendWord, time);
+}
+
+function sendWord() {
+    var currentWord = getRandomWord();
+    var wordField = document.getElementById('word-shower');
+    var word = document.createElement('p');
+    word.innerHTML = currentWord;
+
+}
+
 function getRandomWord() {
     const wordsArray = splitWords();
     const length = wordsArray.length;
     const randomIndex = Math.floor(Math.random() * length);
-    console.log(wordsArray[randomIndex]);
+    return wordsArray[randomIndex];
 }
 
 function splitWords() {

@@ -28,3 +28,35 @@ body {
     height: 100vh;
     width: 100%;
 }
+
+#game-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 50px;
+}
+
+#word-shower {
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: repeat(50, 2%);
+    height: 90%;
+    width: 100%;
+}
+
+#word-input {
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    border-radius: 0;
+    border: none;
+    outline: none;
+    caret-color: transparent;
+    color: white;
+    font-size: 40px;
+    text-align: center;
+}

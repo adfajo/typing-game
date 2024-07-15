@@ -5,14 +5,14 @@
     <title>Title</title>
     <link rel="stylesheet" href="../style.css">
     <script src="../js/wordLogic.js"></script>
+    <meta name="google" content="notranslate">
 </head>
 <body onload="initializeGame()">
     <div id="game-items">
         <div id="word-shower">
-
         </div>
         <div id="word-input">
-            <input type="text" id="word-input-field">
+            <input type="text" id="word-input-field" onkeypress="checkWord(event)" autocomplete="off" onblur="focusBack()">
         </div>
     </div>
 </body>

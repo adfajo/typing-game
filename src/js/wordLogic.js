@@ -1,15 +1,40 @@
+let listOfWords = [];
+
 function initializeGame() {
     document.getElementById('word-input-field').focus();
-    var time = 5000;
+    let time = 3000;
     setInterval(sendWord, time);
 }
 
 function sendWord() {
-    var currentWord = getRandomWord();
-    var wordField = document.getElementById('word-shower');
-    var word = document.createElement('p');
+    let currentWord = getRandomWord();
+    let wordField = document.getElementById('word-shower');
+    let word = document.createElement('p');
+    word.classList.add('words');
     word.innerHTML = currentWord;
+    wordField.appendChild(word);
+    listOfWords.push(currentWord);
+}
 
+function checkWord(event) {
+    const charCode = event.charCode || event.keyCode;
+    if (charCode === 13) {
+        let word = document.getElementById('word-input-field').value;
+        if (listOfWords.includes(word)) {
+            listOfWords = listOfWords.filter(item => item !== word);
+            for (const element of document.getElementsByClassName('words')) {
+                if (element.innerHTML === word) {
+                    element.remove();
+                }
+            }
+        }
+        document.getElementById('word-input-field').value = '';
+        console.log('Enter pressed');
+    }
+}
+
+function focusBack() {
+    document.getElementById('word-input-field').focus();
 }
 
 function getRandomWord() {

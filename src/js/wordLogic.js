@@ -12,12 +12,15 @@ function sendWord() {
     let word = document.createElement('p');
     word.classList.add('words');
     word.innerHTML = currentWord;
+    word.style.gridColumn = Math.floor(Math.random() * 50) + 1;
+    word.style.gridRow = 1;
     wordField.appendChild(word);
     listOfWords.push(currentWord);
 }
 
 function checkWord(event) {
     const charCode = event.charCode || event.keyCode;
+    //Checks if the key pressed is Enter
     if (charCode === 13) {
         let word = document.getElementById('word-input-field').value;
         if (listOfWords.includes(word)) {

@@ -30,6 +30,7 @@ body {
 }
 
 #game-items {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -53,6 +54,8 @@ body {
 }
 
 input {
+    position: absolute;
+    z-index: 2;
     width: 100%;
     border-radius: 0;
     border: none;
@@ -61,4 +64,20 @@ input {
     color: white;
     font-size: 40px;
     text-align: center;
+}
+
+.words {
+    z-index: 1;
+    animation: rain 10s linear;
+    font-size: 18px;
+}
+
+@keyframes rain {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(100%);
+    }
+
 }

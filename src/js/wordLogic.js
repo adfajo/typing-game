@@ -4,6 +4,7 @@ function initializeGame() {
     document.getElementById('word-input-field').focus();
     let time = 3000;
     setInterval(sendWord, time);
+    checkForLostWords();
 }
 
 function sendWord() {
@@ -16,6 +17,14 @@ function sendWord() {
     word.style.gridRow = 1;
     wordField.appendChild(word);
     listOfWords.push(currentWord);
+}
+
+function checkForLostWords() {
+    document.getElementById('word-shower').addEventListener('animationend', (event) => {
+        if (event.target.classList.contains('words') && event.animationName === 'rain') {
+            console.log('Word loss');
+        }
+    })
 }
 
 function checkWord(event) {

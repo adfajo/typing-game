@@ -1,12 +1,13 @@
 let listOfWords = [];
 let score;
 let time;
-let life;
+let life = 0;
+let wordInterval;
 
 function initializeGame() {
     document.getElementById('word-input-field').focus();
     time = 3000;
-    setInterval(sendWord, time);
+    wordInterval = setInterval(sendWord, time);
     checkForLostWords();
 }
 
@@ -42,7 +43,17 @@ function lossOfWord() {
 }
 
 function endGame() {
+    document.getElementById('game-over').style.display = 'block';
+    pauseAnimation('rain');
+    clearInterval(wordInterval);
+}
 
+function pauseAnimation(animationName) {
+    document.querySelectorAll('.words').forEach(element => {
+        if (getComputedStyle(element).animationName === animationName) {
+            element.style.animationPlayState = 'paused';
+        }
+    });
 }
 
 function checkWord(event) {

@@ -27,6 +27,41 @@
 body {
     height: 100vh;
     width: 100%;
+    overflow: hidden;
+}
+
+#game-over-box {
+    position: fixed;
+    width: 40%;
+    height: max-content;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: white;
+    z-index: 3;
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#game-over-box h1, h2, span, button {
+    text-align: center;
+    background-color: white;
+}
+
+#game-over {
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 3;
 }
 
 #game-items {
@@ -44,9 +79,13 @@ body {
     grid-template-rows: 100%;
     grid-template-columns: repeat(50, 2%);
     height: 90%;
-    width: 97%;
+    width: 95%;
     color: white;
     text-overflow: clip;
+}
+
+#word-shower p {
+    background: none;
 }
 
 #word-input {

@@ -1,8 +1,11 @@
 let listOfWords = [];
+let score;
+let time;
+let life;
 
 function initializeGame() {
     document.getElementById('word-input-field').focus();
-    let time = 3000;
+    time = 3000;
     setInterval(sendWord, time);
     checkForLostWords();
 }
@@ -23,8 +26,23 @@ function checkForLostWords() {
     document.getElementById('word-shower').addEventListener('animationend', (event) => {
         if (event.target.classList.contains('words') && event.animationName === 'rain') {
             console.log('Word loss');
+            lossOfWord();
         }
     })
+}
+
+function lossOfWord() {
+    if (life === 0) {
+        console.log('Game over!');
+        endGame();
+    } else {
+        console.log('Life lost!');
+        life--;
+    }
+}
+
+function endGame() {
+
 }
 
 function checkWord(event) {
@@ -37,11 +55,13 @@ function checkWord(event) {
             for (const element of document.getElementsByClassName('words')) {
                 if (element.innerHTML === word) {
                     element.remove();
+                    console.log('Correct word!');
                 }
             }
+        } else {
+            console.log('Incorrect word!');
         }
         document.getElementById('word-input-field').value = '';
-        console.log('Enter pressed');
     }
 }
 
